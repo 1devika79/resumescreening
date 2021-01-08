@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+  .post-content{
+    border: black 1px solid;
+    background-color: #fafafa;
+    margin-left: 20%;
+    margin-bottom: 16px;
+    width: 110%;
+    border-radius: 5px;
+    box-shadow: 8px 8px 16px 0px rgba(0,0,0,0.2);
+    
+}
+body {
+  background: #FFDF6C;
+  color: #333333;
+  margin-top: 5rem;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.bg-steel {
+  background-color: #202020;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+</style>
+<div class="post-content">
+  <article class="media content-section">
+    
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="#">{{ post.author.username }}</a>
+        <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+        
+         {% if post.author == current_user %}
+          <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('generate_post', post_id=post.id) }}">Generate</a>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('update_post', post_id=post.id) }}">Update</a>
+            <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
+          </div>
+        {% endif %}
+        
+      </div>
+      <h2 class="article-title">{{ post.title }}</h2>
+      <p class="article-content">{{ post.content }}</p>
+      <p class="article-content">{{ post.Category }}</p>
+      <h6>MINIMUM skills required</h6>
+      <p class="article-content">{{ post.minskillsrequired }}</p>
+      <h6>RECOMMENDED skills required</h6>
+      <p class="article-content">{{ post.skillsrequired }}</p>
+      
+    </div>
+  </article>
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Delete Post?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <form action="{{ url_for('delete_post', post_id=post.id) }}" method="POST">
+            <input class="btn btn-danger" type="submit" value="Delete">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+{% endblock content %}
+

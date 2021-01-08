@@ -1,0 +1,197 @@
+{% extends "layoutw.html" %}
+{% block content %}
+<style>
+  .bg-steel {
+  background-color: #202020;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #FFDF6C;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+    img{
+  max-width: 100%;
+  height: auto;
+}
+.container{
+  width: 95%;
+  max-width: 90em;
+  margin: 0 auto;
+}
+.clearfix ,
+.section{
+  content: '';
+  display: block;
+  clear: both;
+}
+/* typography*/
+h1{
+  font-weight: 300;
+  font-size: 2.5rem;
+  text-align: center;
+  
+}
+
+.title{
+font-size: 2.5rem;
+margin-bottom: 1.5em;
+font-weight: 900;
+margin-top: 1em;
+}
+.title span{
+  font-weight: 300;
+  display: block;
+  font-size: .85em;
+}
+
+
+@media(min-width:60rem ){
+  .title{
+    font-size: 3.7rem;
+  }
+}
+
+/*header*/
+header{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 1em;
+}
+
+
+
+ /* home-hero*/
+ .home-hero{
+   padding: 10em 0;
+   color: #FFF;
+   background-size: cover;
+   background-position: center;
+   margin-top: 0;
+
+ }
+ .home-about-textbox{
+background-color: #232323;
+padding: 4.5em;
+width: 100%;
+
+margin-top: 20px;
+outline: 2px solid #ffcc00;
+outline-offset: -3em;
+color: #FFF;
+position: relative;
+ }
+ .home-about-textbox h1{
+   color: #ffcc00;
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   top:.3em;
+   background: #232323;
+   padding: 0 0.145em;
+ }
+ .home-about-textbox span{
+     font-family: 'Alfa Slab One', cursive;
+ }
+ @media (min-width: 25rem){
+   h1{
+     font-size: 2rem;
+     
+   }
+   p{
+     line-height: 1.5;
+   }
+   .home-about-textbox h1{
+     top: .6em;
+     padding: 0 .325em;
+   }
+ }
+ @media (min-width: 60rem){
+   h1{
+     font-size: 2.5rem;
+   }
+
+
+   .home-about{
+     
+     padding-bottom: 10em;
+
+   }
+   p{
+     line-height: 1.6;
+     font-size: 1.2rem;
+   }
+   .home-about-textbox{
+         
+  width: 100%;
+  padding-left: 7em;
+  outline-offset: -2.75em;
+  margin-left: 7%;
+  text-align: left;
+  top: -5em;
+  box-shadow: 0 0 4em 0 rgba(0,0,0,.5);
+   }
+   .home-about-textbox h1{
+     top: .75em;
+     left: 3em;
+     transform: translateX(0);
+
+   }
+ }
+
+
+/* footer*/
+
+.container-fluid img{
+    background-repeat: no-repeat;
+     background-size: cover;
+     border: #202020 1px solid;
+     border-radius: 5px;
+}
+
+
+</style>
+   
+    
+    <section class="home-hero" >
+     
+        <div class="container-fluid">
+           <img src="/static/office2.jpg" alt="Lights" style="width:100%">
+        <!--  <h2  >Making your next<strong> big leap</strong> at your fingertips.
+          </h2> -->
+         
+        </div>
+        </section>
+        <div class="container"
+       
+        
+          <section class="home-about">
+          <div class="home-about-textbox">
+            <h1> WHO WE ARE</h1> 
+            <p>We focus on providing you a hassle free method to apply and get jobs.
+             Our application recommends the best job offers according to your skills.This is a perfect
+              way to kickstart your career.<br><span>BID GOODBYE</span> to the time consuming conventional way of job application </p>
+        
+        
+          </div>
+        </section>
+        
+        </div>
+  
+      
+        <footer>
+            <section class="cta">
+            
+          </section> 
+        
+        </footer>
+{% endblock content %}

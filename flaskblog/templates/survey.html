@@ -1,0 +1,160 @@
+{% extends "layoute.html" %}
+{% block content %}
+<style>
+    h1{
+    text-align: center;
+} 
+
+.personal-box{
+    border: black 1px solid;
+    background-color: white;
+    padding: 50px;
+    margin-left: 30%;
+    margin-bottom: 16px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 8px 8px 16px 0px rgba(0,0,0,0.2);
+    text-align: center;
+   
+}
+.personal-box h3{
+    color: #3f3f3f;
+}
+.checkbox{
+    border: black 1px solid;
+    background-color: white;
+    padding: 50px;
+    margin-left: 30%;
+    margin-bottom: 16px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 8px 8px 16px 0px rgba(0,0,0,0.2);
+    text-align: center;
+    font-size: 20px;
+   
+}
+.skills-box{
+    border: black 1px solid;
+    background-color: white;
+    padding: 50px;
+    margin-left: 30%;
+    margin-bottom: 16px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 8px 8px 16px 0px rgba(0,0,0,0.2);
+    text-align: center;
+    font-size: 20px;
+}
+.textarea-box{
+    border: black 1px solid;
+    background-color: white;
+    padding: 50px;
+    margin-left: 30%;
+    margin-bottom: 16px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 8px 8px 16px 0px rgba(0,0,0,0.2);
+    text-align: center;
+    font-size: 20px;
+}
+.textarea-box h2{
+    color: #3f3f3f;
+}
+.button{
+    padding-top: 50px;
+    
+}
+.btn{
+    align-content: center;
+    background-color: #ffffff00 ;
+    color: #202020;
+    padding: 16px;
+    font-size:16px;
+    border: #ffcc00 2px solid;
+    margin-bottom: 90px;
+    border-radius: 30px;
+    width: 50%;
+}
+.btn h1{
+    margin-left: 5%;
+    color: #fafafa;
+}
+.button:hover .btn{background-color: #ffcc00; color: #202020; border: #202020 2px solid;}
+h3{
+    color: #3f3f3f;
+}
+.container{
+    background-color: #ffffff00;
+    width: 95%;
+        max-width: 90em;
+        margin: 0 auto;
+}
+h1{
+    color: #202020;
+   margin-left: 60%;
+}
+/*input{
+    border: #202020 1px solid;
+    border-radius: 5px;
+    padding: 16px;
+    width: 75%;
+}
+textarea{
+    border: #202020 1px solid;
+    border-radius: 5px;
+    padding: 16px;
+    width: 75%;
+}*/
+</style>
+
+    <form method="post">
+        <h1>RESUME</h1>
+        {{ form.hidden_tag() }}
+       <div class="personal-box">
+        <h3>NAME:</h3>
+        {{form.name}}
+        <h3>Email:</h3>
+        {{form.email}}
+        <h3>AGE:</h3>
+        {{form.age}}
+        <h3>PHONE NUMBER:</h3>
+        {{form.phn_no}}
+        <h3>ADDRESS:</h3>
+        {{form.address}}
+        </div>
+        <div class="checkbox">
+        <h3>Known languages:</h3>
+        {{ form.examplelan }}
+        </div>
+        <div class="skills-box">
+        <h2>Technical Skills:</h2>
+        <h3>Programming Skills:</h3>
+        {{ form.examplepro }}
+        <h2>Industry-specific skills:</h2>
+        <h3>Software development:</h3>
+        {{ form.examplesoft }}
+        <h3>Design background:</h3>
+        {{ form.exampledes }}
+        <h3>Marketing skills:</h3>
+        {{ form.examplemarket }}
+        </div>
+        <div class="textarea-box">
+        <h2>SPECIFICATIONS:</h2>
+        {{ form.spec }}
+        <h2>EXPERIENCE:</h2>
+        {{ form.exp }}
+        <h2>LINKED IN:</h2>
+        {{ form.linkedin }}
+        <h2>GITHUB URL:</h2>
+        {{ form.gitid }}
+        <br>
+        <div class="button">
+            <button class="btn" type="submit"><strong>SUBMIT</strong></button>
+            </div>   
+             </div>
+</form>
+
+{% endblock content %}
+
+
+

@@ -1,0 +1,65 @@
+{% extends "layoute.html" %}
+{% block content %}
+<style>
+.container{
+  background-color: #ffffff00;
+    width: 95%;
+        max-width: 90em;
+        margin: 0 auto;
+}  
+.about-box{
+    border: black 1px solid;
+    background-color: white;
+    padding: 50px;
+    margin-left: 30%;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 8px 8px 16px 0px rgba(0,0,0,0.2);
+
+}
+h1{
+    text-align: center;
+    margin-left: 50%;
+   
+}
+body {
+  background: #FFDF6C;
+  color: #333333;
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.bg-steel {
+  background-color: #202020;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffcc00;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+
+</style>
+    <h1>About Us</h1>
+<div class="about-box">
+<h5>We focus on providing you a hassle free method to apply and get jobs. Our application recommends the best job offers according to your skills.This is a perfect way to kickstart your career.Bid goodbye to the time consuming conventional way of job application</h5>
+<p><strong>Browse thousands of job offers </strong><br>
+    <li>  -Get the most suitable job recommendations for you.</li>
+    <li> - accurate recommendation</li>
+    <li>  -Efficent and time saving alternative for job hunting.</li>
+    <li>-Get prompt notifications on status of your applications.</li>
+    </p>
+</div>
+{% endblock content %}

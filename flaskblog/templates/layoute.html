@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+ <style>
+  /* Login Dropdown Button*/
+  .dropbtn{
+      background-color: #FFDF6C ;
+      color: black;
+      padding: 16px;
+      font-size:20px;
+      border: none;
+      
+      
+    }
+.container{
+width: 95%;
+  max-width: 90em;
+  margin: 0 auto;
+}
+    .dropdown{
+      position: relative;
+      display:inline-block;
+    }
+    .dropdown-content{
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .dropdown-content a{
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown_content a:hover {background-color: #020202;}
+    .dropdown:hover .dropdown-content{display: block;}
+    .dropdown:hover .dropbtn{background-color: #707070;}
+    /*Register dropdown*/
+    .dropbtn1{
+      background-color: #FFDF6C ;
+      color: black;
+      padding: 16px;
+      font-size:20px;
+      border: none;
+    }
+    .dropdown1{
+      position: relative;
+      display:inline-block;
+    }
+    .dropdown-content1{
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      color: black;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .dropdown-content1 a{
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown_content1 a:hover {background-color: #000000;}
+    .dropdown1:hover .dropdown-content1{display: block; color: #000000;}
+    .dropdown1:hover .dropbtn1{background-color: #707070;}
+    .container{
+      background-color: #202020;
+    }
+    body {
+  background: #FFDF6C;
+  color: #333333;
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fafafa;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.bg-steel {
+  background-color: #202020;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #FFDF6C;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+    </style>
+    {% if title %}
+        <title>Accura Find - {{ title }}</title>
+    {% else %}
+        <title>Accura Find</title>
+    {% endif %}
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="/"><h1 style="color: #fafafa; font-size: 1.5em;margin-left: 0px;">Accura Find</h1></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              
+              <a class="nav-item nav-link" href="{{ url_for('eabout') }}">About</a>
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+              {% if current_user.is_authenticated %}
+                <a class="nav-item nav-link" href="{{ url_for('ehome') }}">Home</a>
+                <a class="nav-item nav-link" href="{{ url_for('Eaccount') }}">Account</a>
+                <a class="nav-item nav-link" href="{{ url_for('survey') }}">Resume</a>
+                <a class="nav-item nav-link" href="{{ url_for('jobs') }}">Posts</a>
+
+                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+
+              {% else %}
+                <a class="nav-item nav-link" href="{{ url_for('login') }}">Login for company</a>
+                <a class="nav-item nav-link" href="{{ url_for('register') }}">Register for company</a>
+                <a class="nav-item nav-link" href="{{ url_for('loginE') }}">Login for employee</a>
+                <a class="nav-item nav-link" href="{{ url_for('registerE') }}">Register for employee</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          
+          {% block content %}{% endblock %}
+        </div>
+        
+      </div>
+    </main>
+    
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

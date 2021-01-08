@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+    .container{
+        padding-left: 0px;
+        padding-right: 0px;
+        
+    }
+    .bg-steel {
+  background-color: #202020;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #FFDF6C;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+    body{
+        font-family: 'Montserrat', sans-serif;
+    }
+    .content-section{
+        border: #202020 1px solid;
+        border-radius: 10px;
+        margin-left: 30%;
+        width: 100%;
+        text-align: center;
+        box-shadow:  8px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+    /*.btn .btn-outline-info{
+        border: #ffdf6c 2px solid;
+        border-radius: 50%;
+    }*/
+</style>
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+            <div class="form-group">
+                {{ form.title.label(class="form-control-label") }}
+                {% if form.title.errors %}
+                    {{ form.title(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.title.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.title(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.content.label(class="form-control-label") }}
+                {% if form.content.errors %}
+                    {{ form.content(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.content(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.Category.label(class="form-control-label") }}
+                {% if form.Category.errors %}
+                    {{ form.Category(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.Category.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.Category(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.salary.label(class="form-control-label") }}
+                {% if form.salary.errors %}
+                    {{ form.salary(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.salary.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.salary(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                <h4>Minimum Skills Required</h4>
+                <h4>Technical Skills:</h4>
+                <h4>Programming Skills:</h4>
+                {{ form.minpro }}
+                <h4>Industry-specific skills:</h4>
+                <h4>Software development:</h4>
+                {{ form.minsoft }}
+                <h4>Design background:</h4>
+                {{ form.mindes }}
+                <h4>Marketing skills:</h4>
+                {{ form.minmarket }}
+            </div>
+            <div class="form-group">
+                <h4>Recommanded Skills</h4>
+                <h4>Technical Skills:</h4>
+                <h4>Programming Skills:</h4>
+                {{ form.maxpro }}
+                <h4>Industry-specific skills:</h4>
+                <h4>Software development:</h4>
+                {{ form.maxsoft }}
+                <h4>Design background:</h4>
+                {{ form.maxdes }}
+                <h4>Marketing skills:</h4>
+                {{ form.maxmarket }}
+            </div>
+            
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+{% endblock content %}
